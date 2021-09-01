@@ -1,0 +1,174 @@
+@import '../css/reset';
+$background-color:gray;
+$multiplicateur:2;
+$photo-main-width: round(750/$multiplicateur);
+$photo-main-height: round(563/$multiplicateur);
+$main-width:$photo-main-width;
+$littleText-width:round($main-width/4);
+$littleText-height:round($littleText-width/3);
+$littleText-font-size:round($littleText-height/2);
+$titreSize:round($littleText-height/1.5);
+$padding-left-titreSize:round($littleText-width/3);
+$titre2-font-size:round($titreSize/1.1);
+$titre2-line-height:round($padding-left-titreSize/0.9);
+$icones-size:round($titre2-line-height/3);
+$space-between-icones:round($padding-left-titreSize/2);
+$color-bottom-line:#9B9B9B;
+$circle-size:$littleText-height*1.7;
+$circle-line-height:$circle-size/3.5;
+$circle-font-size:$titre2-font-size/1.2;
+$position-top-date-no-complete:-(40+$photo-main-height+$littleText-height+$titre2-line-height+$titre2-line-height);
+$position-top-date:-($photo-main-height*1.6);
+$position-right-date:$photo-main-width/1.18;
+$textAnim-width:$photo-main-width - (2*$padding-left-titreSize);
+$padding-left-textAnim:20+$padding-left-titreSize;
+$lazyCheatMode-top:20+$photo-main-height;
+
+body {
+  background-color: $background-color;
+  margin:20px;
+}
+
+.date-evenement{
+  position:relative;
+  top : $position-top-date+px;
+  left: $position-right-date+px;
+  border-radius: 50%;
+  background-color: red;
+  text-align: center;
+  color:white;
+  width:$circle-size+px;
+  height:$circle-size+px;
+  line-height: $circle-line-height+px;
+  font-size:$circle-font-size+px;
+}
+
+@keyframes slide-top {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-90px);
+  }
+}
+
+@keyframes slide-top-2 {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(-100px);
+    opacity: 1;
+  }
+}
+
+@keyframes Zoom {
+  0% {
+    transform: scaleY(1) translateY(0px);
+    transform-origin: 60% 20%;
+  }
+  100% {
+    transform: scaleY(1.20) translateY(0px);
+    transform-origin: top;
+  }
+}
+
+
+main {
+  width:$main-width+px;
+  background-color: white;
+
+    & .lazyCheatMode {
+      display:none;
+      position:absolute;
+      left:20px;
+      top:$lazyCheatMode-top+px;
+      width:$photo-main-width+px;
+      height:150px;
+      color:$color-bottom-line;
+      background-color:white;
+      z-index: 0;
+    }
+
+    &:hover {
+      > .photo-main {opacity: 0.5;}
+      > .lazyCheatMode {animation: slide-top 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;}
+      > .littleText, .titre, .titre2 {animation: slide-top 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;}
+      > .texteAnim {animation: slide-top-2 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;}
+      > .texteAnim {display:block}
+      > .lazyCheatMode {display:flex}
+      > .photo-main {animation: Zoom 1s ease-out both;}
+    }
+
+    & .empty {
+      width:100%;
+      height:$titre2-line-height+px;
+    }
+
+    & .titre {
+      position: relative;
+      font-size: $titreSize+px;
+      font-weight: bold;
+      padding-left:$padding-left-titreSize+px;
+      background-color:white;
+      z-index: 2;
+    }
+    & .titre2 {
+      position:relative;
+      color:#C28685;
+      font-size: $titre2-font-size+px;
+      padding-left:$padding-left-titreSize+px;
+      line-height:$titre2-line-height+px;
+      height:$titre2-line-height+px;
+      background-color:white;
+      z-index: 2;
+    }
+    & .littleText {
+      background-color: red;
+      text-align:center;
+      width:$littleText-width+px;
+      height:$littleText-height+px;
+      line-height: $littleText-height+px;
+      font-size: $littleText-font-size+px;
+      color:white;
+      position:relative;
+      top:-$littleText-height+px;
+    }
+    & img.photo-main {
+      display: flex;
+      width : $photo-main-width+px;
+      height : $photo-main-height+px;
+      z-index: -10;
+    }
+    & .texteAnim {
+      display:none;
+      position:absolute;
+      left:$padding-left-textAnim+px;
+      width:$textAnim-width+px;
+      color:$color-bottom-line;
+      background-color:white;
+      z-index: 1;
+    }
+    & .photo-horloge {
+      width:$icones-size+px;
+      height:$icones-size+px;
+      padding-left:$padding-left-titreSize+px;
+    }
+    & .photo-bulles {
+      width:$icones-size+px;
+      height:$icones-size+px;
+      padding-left:$space-between-icones+px;
+    }
+    & .bottomLine {
+      color:$color-bottom-line;
+    }
+}
+
+
+
+

@@ -1,0 +1,160 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video, svg, hr {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  font-weight: normal;
+}
+
+body {
+  background-color: gray;
+  margin: 20px;
+}
+
+.date-evenement {
+  position: relative;
+  top: -451.2px;
+  left: 317.7966101695px;
+  border-radius: 50%;
+  background-color: red;
+  text-align: center;
+  color: white;
+  width: 52.7px;
+  height: 52.7px;
+  line-height: 15.0571428571px;
+  font-size: 15.8333333333px;
+}
+
+@keyframes slide-top {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-90px);
+  }
+}
+@keyframes slide-top-2 {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(-100px);
+    opacity: 1;
+  }
+}
+@keyframes Zoom {
+  0% {
+    transform: scaleY(1) translateY(0px);
+    transform-origin: 60% 20%;
+  }
+  100% {
+    transform: scaleY(1.2) translateY(0px);
+    transform-origin: top;
+  }
+}
+main {
+  width: 375px;
+  background-color: white;
+}
+main .lazyCheatMode {
+  display: none;
+  position: absolute;
+  left: 20px;
+  top: 302px;
+  width: 375px;
+  height: 150px;
+  color: #9B9B9B;
+  background-color: white;
+  z-index: 0;
+}
+main:hover > .photo-main {
+  opacity: 0.5;
+}
+main:hover > .lazyCheatMode {
+  animation: slide-top 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+main:hover > .littleText, main:hover .titre, main:hover .titre2 {
+  animation: slide-top 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+main:hover > .texteAnim {
+  animation: slide-top-2 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+main:hover > .texteAnim {
+  display: block;
+}
+main:hover > .lazyCheatMode {
+  display: flex;
+}
+main:hover > .photo-main {
+  animation: Zoom 1s ease-out both;
+}
+main .empty {
+  width: 100%;
+  height: 34px;
+}
+main .titre {
+  position: relative;
+  font-size: 21px;
+  font-weight: bold;
+  padding-left: 31px;
+  background-color: white;
+  z-index: 2;
+}
+main .titre2 {
+  position: relative;
+  color: #C28685;
+  font-size: 19px;
+  padding-left: 31px;
+  line-height: 34px;
+  height: 34px;
+  background-color: white;
+  z-index: 2;
+}
+main .littleText {
+  background-color: red;
+  text-align: center;
+  width: 94px;
+  height: 31px;
+  line-height: 31px;
+  font-size: 16px;
+  color: white;
+  position: relative;
+  top: -31px;
+}
+main img.photo-main {
+  display: flex;
+  width: 375px;
+  height: 282px;
+  z-index: -10;
+}
+main .texteAnim {
+  display: none;
+  position: absolute;
+  left: 51px;
+  width: 313px;
+  color: #9B9B9B;
+  background-color: white;
+  z-index: 1;
+}
+main .photo-horloge {
+  width: 11px;
+  height: 11px;
+  padding-left: 31px;
+}
+main .photo-bulles {
+  width: 11px;
+  height: 11px;
+  padding-left: 16px;
+}
+main .bottomLine {
+  color: #9B9B9B;
+}
+
+/*# sourceMappingURL=style.css.map */
